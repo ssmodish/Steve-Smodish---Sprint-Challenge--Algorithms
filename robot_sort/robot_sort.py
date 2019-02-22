@@ -103,39 +103,75 @@ class SortingRobot:
         # A version of bubble sort is probably the best we can do with these limitations
         # Robot starts off at 0 position
         # take the first object
-        self.swap_item()
 
         # normal bubble sort
-        # make sure light is turned off
-        # while we can move right
-        while self.can_move_right():
-            # move right
-            # compare items
-            # if item in list is greater
-                # swap item
-                # set light on to let us know there has been a swap during this pass
-            # else if item in list does not exist
-                # swap item
-                # if light is off
-                    # return list
-                # move left one
-                # pickup item and do negative bubble sort
+        def normal_bubble_sort():
+            # make sure light is turned off
+            self.set_light_off()
+            # while we can move right
+            while self.can_move_right():
+                # move right
+                self.move_right()
+                # compare items
+                # handle if item in list does not exist
+                if not self.compare_item():
+                    # swap item
+                    self.swap_item()
+                    # if light is off
+                    if not self.light_is_on():
+                        # return list
+                        return
+                    # move left one
+                    self.move_left()
+                    # pickup item and do negative bubble sort
+                    self.swap_item()
+                    negative_bubble_sort()
+                # else if item in list is greater
+                elif self.compare_item() < 0:
+                    # swap item
+                    self.swap_item()
+                    # set light on to let us know there has been a swap during this pass
+                    self.set_light_on()
+            self.swap_item()
+
         
+
         # negative bubble sort
-        # make sure light is turned off
-        # while we can move left
-        while self.can_move_left():
-            # move left
-            # compare items
-            # if item in list is less
-                # swap item
-                # set light on to let us know there has been a swap
-            # else if item in list does not exist
-                # swap item
-                # if light is off
-                    # return list
-                # move right one
-                # pickup item and do normal bubble sort
+        def negative_bubble_sort():
+            # make sure light is turned off
+            self.set_light_off()
+            # while we can move left
+            while self.can_move_left():
+                # move left
+                self.move_left()
+                # compare items
+                # handle if item in list does not exist
+                if not self.compare_item():
+                    # swap item
+                    self.swap_item()
+                    # if light is off
+                    if not self.light_is_on():
+                        # return list
+                        return
+                    # move right one
+                    self.move_right()
+                    # pickup item and do normal bubble sort
+                    self.swap_item()
+                    normal_bubble_sort()
+                # else if item in list is less
+                elif self.compare_item() > 0:
+                    # swap item
+                    self.swap_item()
+                    # set light on to let us know there has been a swap
+                    self.set_light_on()
+            self.swap_item()
+
+
+        self.swap_item()
+        normal_bubble_sort()
+        negative_bubble_sort()
+        self.swap_item()
+
 
 
         
