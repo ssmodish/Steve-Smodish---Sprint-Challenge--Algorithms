@@ -100,8 +100,45 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # A version of bubble sort is probably the best we can do with these limitations
+        # Robot starts off at 0 position
+        # take the first object
+        self.swap_item()
+
+        # normal bubble sort
+        # make sure light is turned off
+        # while we can move right
+        while self.can_move_right():
+            # move right
+            # compare items
+            # if item in list is greater
+                # swap item
+                # set light on to let us know there has been a swap during this pass
+            # else if item in list does not exist
+                # swap item
+                # if light is off
+                    # return list
+                # move left one
+                # pickup item and do negative bubble sort
+        
+        # negative bubble sort
+        # make sure light is turned off
+        # while we can move left
+        while self.can_move_left():
+            # move left
+            # compare items
+            # if item in list is less
+                # swap item
+                # set light on to let us know there has been a swap
+            # else if item in list does not exist
+                # swap item
+                # if light is off
+                    # return list
+                # move right one
+                # pickup item and do normal bubble sort
+
+
+        
 
 
 if __name__ == "__main__":
