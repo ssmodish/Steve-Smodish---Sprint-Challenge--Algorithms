@@ -2,9 +2,9 @@
 
 a) O(n) 
 
-b) O(n**2)
+b) O(n**3)
 
-c) O(1) (or O(0) because of the bug)
+c) O(1)
 
 ## Exercise II
 Set _f_ to _n_/2
